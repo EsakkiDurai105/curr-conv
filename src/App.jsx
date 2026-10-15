@@ -6,17 +6,19 @@ function App() {
   const [fromcur,setFrom] = useState("")
   const [tocurr,setTocurr] = useState("")
   const [conv,setConv] = useState([])
-  const [display,setDisplay] = useState([])
+  // const [display,setDisplay] = useState([])
 
   function add(){ 
-    const newcurr = {
-      curr,
-      fromcurr,
-      tocurr
-    }
-    setConv([...conv,newcurr]
-    
-    )
+    const newcurr = [{
+      curr:curr,
+      fromcur:fromcur,
+      tocurr:tocurr
+    }]
+    setConv([...conv,newcurr])
+    setCurr("")
+    setFrom("")
+    setTocurr("")
+
 
   }
   // function convert(curr){
@@ -38,7 +40,9 @@ function App() {
         <button onClick={add}>Submit</button>
       {
         conv.map((cur,index)=>(
+          
           <div key={index}>
+            <p>currecny:{cur.curr}</p>
             <p>from {cur.fromcur}</p>
             <p> to {cur.tocurr}</p>
             {/* <button onClick={()=>convert(cur)}>convert</button> */}
